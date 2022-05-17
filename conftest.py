@@ -1,11 +1,6 @@
 import pytest
 from selenium import webdriver
-#from selenium.webdriver.common.by import By
-#from selenium.webdriver.support.ui import WebDriverWait
-#from selenium.webdriver.support import expected_conditions as EC
-#import time
-#import math
-#from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options
 
 
 def pytest_addoption(parser):
@@ -23,7 +18,7 @@ def browser(request):
         print("\nНачали тест...")
         options = webdriver.ChromeOptions()
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        #options.add_experimental_option('prefs', {'intl.accept_languages': language})
+        options.add_experimental_option('prefs', {'intl.accept_languages': language})
         browser = webdriver.Chrome(options=options)
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
